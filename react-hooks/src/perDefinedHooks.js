@@ -1,14 +1,17 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect,useContext} from 'react';
 
 const PreDefined=() =>{
 
     var [count,setCount]=useState(0);
     var [count2,setCount2]=useState(0);
-
+    console.log(useContext(React.createContext('default')));
     useEffect(()=>{
         document.title=` count1: ${count} count2: ${count2} times`;
+        // console.log(React.createContext('none'));
+        // console.log(useContext(React.createContext('default')));
         return function cleanUp(){
             console.log('component unmounted!');
+
         };
     },[count,count2]);
     return (
